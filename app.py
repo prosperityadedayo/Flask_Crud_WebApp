@@ -25,14 +25,30 @@ def add_utensil():
         Item_name = request.form['Item_name']
         Material = request.form['Material']
         Quantity = request.form['Quantity']
-        Sale = request.form['Sale']
-        Purchase = request.form['Purchase']
+        Sales_price = request.form['Sales_price']
+        Purchase_price = request.form['Purchase_price']
 
         cursor = mysql.connection.cursor()
-        cursor.execute("INSERT INTO kitchen_utensils (Item_name, Material, Quantity, Sale, Purchase) VALUES (%s, %s, %s, %s, %s)", (Item_name, Material, Quantity, Sale, Purchase))
+        cursor.execute("INSERT INTO kitchen_utensils (Item_name, Material, Quantity, Sales_price, Purchase_price) VALUES (%s, %s, %s, %s, %s)", (Item_name, Material, Quantity, Sales_price, Purchase_price))
 
         mysql.connection.commit()
         return redirect(url_for('dashboard'))
+
+@app.route('/inventory')
+def view_inventory():
+    search_query = request.args.get('search', '')
+
+    cursor = mysql.connection.cursor()
+    
+    if search_query:
+        query = "SELECT * FROM kitchen_utensils WHERE Item_name LIKE %s"
+        cursor.execute(query, ('%' + search_query + '%',))
+    else:
+        query = "SELECT * FROM kitchen_utensils"
+        cursor.execute(query)
+
+    utensils = cursor.fetchall()
+    return render_template('inventory.html', utensils=utensils, search_query=search_query)
 
 
 if __name__ == '__main__':
