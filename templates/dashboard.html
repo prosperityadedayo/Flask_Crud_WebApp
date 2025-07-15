@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Inventory Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-light">
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-black border-end border-warning" id="sidebar-wrapper">
+      <div class="sidebar-heading text-warning fw-bold py-4 ps-3">
+        Kitchen Inventory
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- WHY: Sidebar gives a cleaner navigation for large systems -->
+        <a href="/" class="list-group-item list-group-item-action bg-black text-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-black text-light">Add Item</a>
+        <a href="#" class="list-group-item list-group-item-action bg-black text-light">View Inventory</a>
+        <a href="#" class="list-group-item list-group-item-action bg-black text-light">Update Item</a>
+        <a href="#" class="list-group-item list-group-item-action bg-black text-light">Delete Item</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page-content-wrapper" class="w-100">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning px-4">
+        <!-- WHY: Top bar now includes profile info for realism -->
+        <div class="ms-auto">
+          <span class="text-light me-3"> User</span>
+        </div>
+      </nav>
+
+      <div class="container-fluid px-4 py-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="text-warning">Dashboard</h1>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="row g-4 mb-5">
+          <div class="col-md-3">
+            <div class="card bg-secondary text-light border-warning shadow">
+              <div class="card-body text-center">
+                <h5>Total Items</h5>
+                <p class="display-6">123</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card bg-secondary text-light border-warning shadow">
+              <div class="card-body text-center">
+                <h5>Categories</h5>
+                <p class="display-6">10</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card bg-secondary text-light border-warning shadow">
+              <div class="card-body text-center">
+                <h5>Items Low in Stock</h5>
+                <p class="display-6 text-danger">5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHY: Table shows recent changes by users -->
+        <div class="card bg-black border-warning mt-5">
+          <div class="card-header border-warning">
+            <h5 class="mb-0 text-warning">Recent Activity</h5>
+          </div>
+          <div class="card-body">
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Action</th>
+                  <th>User</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cooking Pot</td>
+                  <td>Added</td>
+                  <td>Admin</td>
+                  <td>Just now</td>
+                </tr>
+                <tr>
+                  <td>Spatula</td>
+                  <td>Updated</td>
+                  <td>Admin</td>
+                  <td>10 mins ago</td>
+                </tr>
+                <!-- more rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
