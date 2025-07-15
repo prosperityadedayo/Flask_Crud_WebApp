@@ -1,6 +1,4 @@
-import MySQLdb
-from flask import Flask, redirect, render_template, request, url_for
-import mysql.connector
+from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
 
 

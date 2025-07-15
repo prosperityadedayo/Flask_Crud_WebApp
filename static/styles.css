@@ -15,7 +15,6 @@ body {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(255, 193, 7, 0.5);
 }
-/* Sidebar tweaks */
 #sidebar-wrapper {
   width: 220px;
   min-height: 100vh;
@@ -25,14 +24,11 @@ body {
   background-color: #222;
   color: gold;
 }
-
-/* Card hover */
 .card:hover {
   transform: scale(1.05);
   transition: 0.3s ease-in-out;
 }
 
-/* Table tweaks */
 .table th {
   color: gold;
 }
