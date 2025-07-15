@@ -15,6 +15,10 @@ mysql = MySQL(app)
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/create')
+def create_page():
+    return render_template('create.html')
+
 @app.route('/add', methods=['POST'])
 def add_utensil():
     if request.method == "POST":
