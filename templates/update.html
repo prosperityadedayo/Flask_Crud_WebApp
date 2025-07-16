@@ -4,6 +4,11 @@
     <title>Update Utensil</title>
 </head>
 <body>
+    {% extends 'base.html' %}
+
+    {% block title %}Inventory{% endblock %}
+
+    {% block content %}
     <h1>Update Utensil</h1>
     <form action="{{ url_for('update_item', id=utensil[0]) }}" method="POST">
         <label>Item Name:</label>
@@ -23,5 +28,6 @@
 
         <button type="submit">Update</button>
     </form>
+    {% endblock %}
 </body>
 </html>

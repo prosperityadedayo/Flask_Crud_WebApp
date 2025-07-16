@@ -1,27 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Utensil</title>
-</head>
-<body>
-    <h1>Add a New Utensil</h1>
-    <form action="{{url_for('add_utensil')}}" method="POST">
-        <label>Item Name:</label>
-        <input type="text" name="Item_name" required><br><br>
+{% extends 'base.html' %}
 
-        <label>Material:</label>
-        <input type="text" name="Material" required><br><br>
+{% block title %}Add Utensil{% endblock %}
 
-        <label>Quantity:</label>
-        <input type="number" name="Quantity" required><br><br>
+{% block content %}
+<h2 class="text-warning mb-4">Add a New Utensil</h2>
 
-        <label>Sale Price:</label>
-        <input type="text" name="Sales_price" required><br><br>
+<form action="{{ url_for('add_utensil') }}" method="POST" class="row g-3">
+  <div class="col-md-6">
+    <label for="Item_name" class="form-label">Item Name</label>
+    <input type="text" class="form-control" id="Item_name" name="Item_name" required>
+  </div>
 
-        <label>Purchase Price:</label>
-        <input type="text" name="Purchase_price" required><br><br>
+  <div class="col-md-6">
+    <label for="Material" class="form-label">Material</label>
+    <input type="text" class="form-control" id="Material" name="Material" required>
+  </div>
 
-        <button type="submit">Add Utensil</button>
-    </form>
-</body>
-</html>
+  <div class="col-md-4">
+    <label for="Quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="Quantity" name="Quantity" required>
+  </div>
+
+  <div class="col-md-4">
+    <label for="Sales_price" class="form-label">Sales Price</label>
+    <input type="text" class="form-control" id="Sales_price" name="Sales_price" required>
+  </div>
+
+  <div class="col-md-4">
+    <label for="Purchase_price" class="form-label">Purchase Price</label>
+    <input type="text" class="form-control" id="Purchase_price" name="Purchase_price" required>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-warning">Add Utensil</button>
+  </div>
+</form>
+{% endblock %}

@@ -40,15 +40,7 @@
             <div class="card bg-secondary text-light border-warning shadow">
               <div class="card-body text-center">
                 <h5>Total Items</h5>
-                <p class="display-6">123</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card bg-secondary text-light border-warning shadow">
-              <div class="card-body text-center">
-                <h5>Categories</h5>
-                <p class="display-6">10</p>
+                <p class="display-6">{{ total_items }}</p>
               </div>
             </div>
           </div>
@@ -56,7 +48,7 @@
             <div class="card bg-secondary text-light border-warning shadow">
               <div class="card-body text-center">
                 <h5>Items Low in Stock</h5>
-                <p class="display-6 text-danger">5</p>
+                <p class="display-6 text-danger">{{ low_stock_count }}</p>
               </div>
             </div>
           </div>
@@ -70,24 +62,16 @@
               <thead>
                 <tr>
                   <th>Item</th>
-                  <th>Action</th>
-                  <th>User</th>
-                  <th>Time</th>
+                  <th>Purchase Price</th>
                 </tr>
               </thead>
               <tbody>
+                {% for item in recent_items %}
                 <tr>
-                  <td>Cooking Pot</td>
-                  <td>Added</td>
-                  <td>Admin</td>
-                  <td>Just now</td>
+                  <td>{{ item[0] }}</td>
+                  <td>{{ item[1] }}</td>
                 </tr>
-                <tr>
-                  <td>Spatula</td>
-                  <td>Updated</td>
-                  <td>Admin</td>
-                  <td>10 mins ago</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
